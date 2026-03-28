@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Petit Can</title>
+    <style>
+        body {
+            background-color: #000000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #D1D5DB;
+            /* Gris claro */
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .main-text {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            /* Tipografía de remate */
+            font-size: 2.5rem;
+            /* Más grande */
+            font-weight: 300;
+            letter-spacing: 0.15rem;
+            margin-bottom: 1rem;
+        }
+
+        .sub-text {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-size: 1.0rem;
+            /* Más grande */
+            letter-spacing: 0.1rem;
+            opacity: 0.8;
+            font-weight: 400;
+            position: relative;
+
+            /* Efecto de luz (Shimmer) */
+            background: linear-gradient(90deg, #555 0%, #fff 50%, #555 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .dots-container {
+            display: inline-flex;
+            gap: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .dot {
+            width: 4px;
+            height: 4px;
+            background-color: #D1D5DB;
+            border-radius: 50%;
+            opacity: 0.2;
+            transition: opacity 0.3s ease;
+        }
+
+        .dot.active {
+            opacity: 1;
+            box-shadow: 0 0 8px #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-text">Le Petit Can</div>
+    <div class="sub-text">
+        COMING SOON
+        <div class="dots-container" id="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <script>
+        // Efecto de bolitas intermitentes simulando cuenta atrás
+        const dots = document.querySelectorAll('.dot');
+        let currentDot = 0;
+
+        setInterval(() => {
+            // Reiniciar todos
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            // Activar secuencialmente
+            for (let i = 0; i <= currentDot; i++) {
+                dots[i].classList.add('active');
+            }
+
+            currentDot++;
+            if (currentDot >= dots.length) {
+                currentDot = -1; // Pausa antes de reiniciar
+            }
+        }, 600);
+    </script>
+</body>
+
+</html>
