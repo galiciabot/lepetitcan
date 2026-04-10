@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Precios · Le Petit Can</title>
+    <meta name="description"
+        content="Calcula online el presupuesto y tiempo aproximado de los servicios para tu perro.">
+    <!-- Google Fonts: Manrope & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="icon" type="image/png" href="logo-le-petit-can.png">
+    <link rel="stylesheet" href="styles-calculadora.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="index.html#inicio" class="logo">
+                <img src="logo-le-petit-can.png" alt="Le Petit Can Logo" class="logo-img">
+            </a>
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="index.html#nosotros" class="nav-link">Le Petit Can</a></li>
+                    <li><a href="index.html#lili" class="nav-link">Iliana Ortega</a></li>
+                    <li><a href="index.html#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="index.html#tienda" class="nav-link">Productos</a></li>
+                    <li><a href="index.html#faqs" class="nav-link">FAQs</a></li>
+                    <li><a href="index.html#galeria" class="nav-link">Galería</a></li>
+                    <li><a href="index.html#ubicacion" class="nav-link">Ubicación</a></li>
+                    <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="index.html#contacto" class="btn btn-primary">Reservar cita</a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero">
+            <div class="hero-content">
+                <span class="eyebrow">Calculadora de Servicios</span>
+                <h2>¿Cuánto costará el servicio<br>para <em>tu peludo?</em></h2>
+                <p>Descubre el presupuesto y tiempo estimado en base a las características de tu compañero. Completa
+                    estos sencillos pasos en menos de un minuto.</p>
+            </div>
+        </div>
+
+        <section class="calculator-container">
+            <div class="card">
+
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <span class="step-label active">Datos</span>
+                        <span class="step-label">Servicio</span>
+                        <span class="step-label">Tamaño</span>
+                        <span class="step-label">Estado</span>
+                        <span class="step-label">Carácter</span>
+                        <span class="step-label">Extras</span>
+                        <span class="step-label">Resultado</span>
+                    </div>
+                </div>
+
+                <div class="steps-wrapper" id="steps-wrapper">
+
+                    <!-- STEP 1: Sobre tu mascota -->
+                    <div class="step active" data-step="1">
+                        <div class="step-header">
+                            <span class="step-number">Paso 1 de 7</span>
+                            <h3>Sobre tu mascota</h3>
+                            <p>Cuéntanos un poco sobre él o ella para personalizar la atención.</p>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 2rem;">
+                            <label class="form-label">Raza</label>
+                            <div class="select-wrapper">
+                                <select id="raza-select" class="custom-select" data-key="raza">
+                                    <option value="" disabled selected>Selecciona una raza...</option>
+                                    <option value="AIREDALE TERRIER">AIREDALE TERRIER</option>
+                                    <option value="AKITA INU">AKITA INU</option>
+                                    <option value="ALASKA MALAMUTE">ALASKA MALAMUTE</option>
+                                    <option value="AMERICAN STANFORD / PITBULL">AMERICAN STANFORD / PITBULL</option>
+                                    <option value="BASSET HOUND">BASSET HOUND</option>
+                                    <option value="BEAGLE">BEAGLE</option>
+                                    <option value="BICHÓN BOLOÑÉS">BICHÓN BOLOÑÉS</option>
+                                    <option value="BICHÓN MALTÉS">BICHÓN MALTÉS</option>
+                                    <option value="BICHÓN FRISÉ">BICHÓN FRISÉ</option>
+                                    <option value="BICHÓN HABANERO">BICHÓN HABANERO</option>
+                                    <option value="BOBTAIL">BOBTAIL</option>
+                                    <option value="BOSTON TERRIER">BOSTON TERRIER</option>
+                                    <option value="BORDER COLLIE">BORDER COLLIE</option>
+                                    <option value="BOXER">BOXER</option>
+                                    <option value="BULLDOG FRANCÉS">BULLDOG FRANCÉS</option>
+                                    <option value="BULLDOG INGLÉS">BULLDOG INGLÉS</option>
+                                    <option value="BULL TERRIER">BULL TERRIER</option>
+                                    <option value="BULLMASTIFF">BULLMASTIFF</option>
+                                    <option value="BLOOD HOUND">BLOOD HOUND</option>
+                                    <option value="BRACO DE WEIMARANDER">BRACO DE WEIMARANDER</option>
+                                    <option value="BRETÓN">BRETÓN</option>
+                                    <option value="CANICHE TOY – MEDIANO">CANICHE TOY – MEDIANO</option>
+                                    <option value="CANICHE GRANDE">CANICHE GRANDE</option>
+                                    <option value="CARLINO">CARLINO</option>
+                                    <option value="COCKER SPANIEL / AMERICANO">COCKER SPANIEL / AMERICANO</option>
+                                    <option value="COUPER">COUPER</option>
+                                    <option value="CHIHUAHUA">CHIHUAHUA</option>
+                                    <option value="CHOW CHOW">CHOW CHOW</option>
+                                    <option value="DÁLMATA">DÁLMATA</option>
+                                    <option value="DOBERMAN">DOBERMAN</option>
+                                    <option value="DOGO DE BURDEOS">DOGO DE BURDEOS</option>
+                                    <option value="DOGO DEL TÍBET">DOGO DEL TÍBET</option>
+                                    <option value="DOGO ARGENTINO">DOGO ARGENTINO</option>
+                                    <option value="FOX TERRIER">FOX TERRIER</option>
+                                    <option value="FOX HOUND">FOX HOUND</option>
+                                    <option value="GALGO">GALGO</option>
+                                    <option value="GALGO AFGANO">GALGO AFGANO</option>
+                                    <option value="GALGO ITALIANO">GALGO ITALIANO</option>
+                                    <option value="GOLDEN RETRIEVER">GOLDEN RETRIEVER</option>
+                                    <option value="GRAN DANÉS">GRAN DANÉS</option>
+                                    <option value="GRIFÓN DE BRUSELAS">GRIFÓN DE BRUSELAS</option>
+                                    <option value="HUSKY SIBERIANO">HUSKY SIBERIANO</option>
+                                    <option value="JACK RUSSELL">JACK RUSSELL</option>
+                                    <option value="KERRY BLUE TERRIER">KERRY BLUE TERRIER</option>
+                                    <option value="LABRADOR RETRIEVER">LABRADOR RETRIEVER</option>
+                                    <option value="MESTIZO GRANDE / DOBLE CAPA">MESTIZO GRANDE / DOBLE CAPA</option>
+                                    <option value="MASTÍN DE LOS ALPES">MASTÍN DE LOS ALPES</option>
+                                    <option value="MASTÍN ESPAÑOL / MASTÍN SUIZO">MASTÍN ESPAÑOL / MASTÍN SUIZO</option>
+                                    <option value="MASTÍN NAPOLITANO">MASTÍN NAPOLITANO</option>
+                                    <option value="MESTIZO PEQUEÑO / DOBLE CAPA">MESTIZO PEQUEÑO / DOBLE CAPA</option>
+                                    <option value="MESTIZO MEDIANO / DOBLE CAPA">MESTIZO MEDIANO / DOBLE CAPA</option>
+                                    <option value="PASTOR ALEMÁN">PASTOR ALEMÁN</option>
+                                    <option value="PASTOR AUSTRALIANO">PASTOR AUSTRALIANO</option>
+                                    <option value="PASTOR CATALÁN">PASTOR CATALÁN</option>
+                                    <option value="PASTOR DE BRIE">PASTOR DE BRIE</option>
+                                    <option value="PASTOR BELGA GROENENDAEL">PASTOR BELGA GROENENDAEL</option>
+                                    <option value="PASTOR BELGA LAEKENOIS">PASTOR BELGA LAEKENOIS</option>
+                                    <option value="PASTOR BELGA MALINOIS">PASTOR BELGA MALINOIS</option>
+                                    <option value="PASTOR BELGA TERVUEREN">PASTOR BELGA TERVUEREN</option>
+                                    <option value="PASTOR SUIZO">PASTOR SUIZO</option>
+                                    <option value="PERRO DE AGUAS">PERRO DE AGUAS</option>
+                                    <option value="PINCHER">PINCHER</option>
+                                    <option value="POMERANIA">POMERANIA</option>
+                                    <option value="PODENCO PEQUEÑO">PODENCO PEQUEÑO</option>
+                                    <option value="PODENCO MEDIANO">PODENCO MEDIANO</option>
+                                    <option value="PODENCO GRANDE">PODENCO GRANDE</option>
+                                    <option value="PRESA CANARIO">PRESA CANARIO</option>
+                                    <option value="RATONERO DE PRAGA">RATONERO DE PRAGA</option>
+                                    <option value="ROTTWEILER">ROTTWEILER</option>
+                                    <option value="SAN BERNARDO">SAN BERNARDO</option>
+                                    <option value="SAMOYEDO">SAMOYEDO</option>
+                                    <option value="SHAR PEI">SHAR PEI</option>
+                                    <option value="SETTER">SETTER</option>
+                                    <option value="SCOTT COLLIE">SCOTT COLLIE</option>
+                                    <option value="SCOTTISH TERRIER">SCOTTISH TERRIER</option>
+                                    <option value="SCHNAUZER MINI / MEDIANO">SCHNAUZER MINI / MEDIANO</option>
+                                    <option value="SCHNAUZER GIGANTE">SCHNAUZER GIGANTE</option>
+                                    <option value="SHIBA INU">SHIBA INU</option>
+                                    <option value="SHIH TZU">SHIH TZU</option>
+                                    <option value="TECKEL DE PELO CORTO">TECKEL DE PELO CORTO</option>
+                                    <option value="TECKEL DE PELO LARGO / DURO">TECKEL DE PELO LARGO / DURO</option>
+                                    <option value="TERRANOVA">TERRANOVA</option>
+                                    <option value="WEST HIGHLAND TERRIER">WEST HIGHLAND TERRIER</option>
+                                    <option value="YORKSHIRE TERRIER">YORKSHIRE TERRIER</option>
+                                    <option value="OTRO">OTRO</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 2rem;">
+                            <label class="form-label">Edad</label>
+                            <div class="grid grid-3">
+                                <div class="option-card compact" data-key="edad" data-value="Cachorro">
+                                    <span class="icon">🍼</span>
+                                    <span class="title">Cachorro</span>
+                                </div>
+                                <div class="option-card compact" data-key="edad" data-value="Adulto">
+                                    <span class="icon">🐕</span>
+                                    <span class="title">Adulto</span>
+                                </div>
+                                <div class="option-card compact" data-key="edad" data-value="Senior">
+                                    <span class="icon">👑</span>
+                                    <span class="title">Senior</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label class="form-label">Sexo</label>
+                            <div class="grid grid-2">
+                                <div class="option-card compact" data-key="sexo" data-value="Hembra">
+                                    <span class="icon">♀️</span>
+                                    <span class="title">Hembra</span>
+                                </div>
+                                <div class="option-card compact" data-key="sexo" data-value="Macho">
+                                    <span class="icon">♂️</span>
+                                    <span class="title">Macho</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="action-bar">
+                            <button class="btn btn-primary next-btn step1-next" disabled>Continuar</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Servicio -->
+                    <div class="step" data-step="2">
+                        <div class="step-header">
+                            <span class="step-number">Paso 2 de 7</span>
+                            <h3>¿Qué servicio necesitas?</h3>
+                            <p>Selecciona el servicio principal para tu perro.</p>
+                        </div>
+                        <div class="grid grid-auto">
+                            <div class="option-card" data-key="servicio" data-value="bano">
+                                <span class="icon">🛁</span>
+                                <span class="title">Baño</span>
+                                <span class="subtitle">Desde 30€</span>
+                            </div>
+                            <div class="option-card" data-key="servicio" data-value="bano_arreglo">
+                                <span class="icon">✂️</span>
+                                <span class="title">Baño + Arreglo</span>
+                                <span class="subtitle">Desde 35€</span>
+                            </div>
+                            <div class="option-card" data-key="servicio" data-value="corte_mixto">
+                                <span class="icon">💇</span>
+                                <span class="title">Corte Mixto</span>
+                                <span class="subtitle">Desde 40€</span>
+                            </div>
+                            <div class="option-card" data-key="servicio" data-value="corte_tijera">
+                                <span class="icon">✂️</span>
+                                <span class="title">Corte Tijera</span>
+                                <span class="subtitle">Desde 50€</span>
+                            </div>
+                            <div class="option-card" data-key="servicio" data-value="stripping">
+                                <span class="icon">🪮</span>
+                                <span class="title">Stripping</span>
+                                <span class="subtitle">Desde 45€</span>
+                            </div>
+                            <div class="option-card" data-key="servicio" data-value="deslanado">
+                                <span class="icon">🌬️</span>
+                                <span class="title">Deslanado</span>
+                                <span class="subtitle">Desde 42€</span>
+                            </div>
+                            <div class="option-card" data-key="servicio" data-value="unas">
+                                <span class="icon">✂️</span>
+                                <span class="title">Uñas</span>
+                                <span class="subtitle">Desde 5€</span>
+                            </div>
+                        </div>
+                        <div class="action-bar">
+                            <button class="btn btn-secondary prev-btn">Atrás</button>
+                            <button class="btn btn-primary next-btn" disabled>Continuar</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Tamaño -->
+                    <div class="step" data-step="3">
+                        <div class="step-header">
+                            <span class="step-number">Paso 3 de 6</span>
+                            <h3>¿Cuál es el tamaño de tu perro?</h3>
+                            <p>El tamaño determina el precio según la tabla oficial de Le Petit Can.</p>
+                        </div>
+                        <div class="grid grid-auto">
+                            <div class="option-card" data-key="tamano" data-value="toy">
+                                <span class="icon">🐩</span>
+                                <span class="title">TOY</span>
+                                <span class="subtitle">&lt;4 kg</span>
+                            </div>
+                            <div class="option-card" data-key="tamano" data-value="pequeno">
+                                <span class="icon">🐾</span>
+                                <span class="title">Pequeño</span>
+                                <span class="subtitle">4 – 10 kg</span>
+                            </div>
+                            <div class="option-card" data-key="tamano" data-value="mediano">
+                                <span class="icon">🐕</span>
+                                <span class="title">Mediano</span>
+                                <span class="subtitle">11 – 20 kg</span>
+                            </div>
+                            <div class="option-card" data-key="tamano" data-value="grande">
+                                <span class="icon">🐕‍🦺</span>
+                                <span class="title">Grande</span>
+                                <span class="subtitle">21 – 35 kg</span>
+                            </div>
+                            <div class="option-card" data-key="tamano" data-value="gigante">
+                                <span class="icon">🦮</span>
+                                <span class="title">Gigante</span>
+                                <span class="subtitle">+35 kg</span>
+                            </div>
+                        </div>
+                        <div class="action-bar">
+                            <button class="btn btn-secondary prev-btn">Atrás</button>
+                            <button class="btn btn-primary next-btn" disabled>Continuar</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Estado -->
+                    <div class="step" data-step="4">
+                        <div class="step-header">
+                            <span class="step-number">Paso 4 de 6</span>
+                            <h3>¿En qué estado está su pelo?</h3>
+                            <p>Indica el estado actual para prever el trabajo necesario de desenredo o lavado.</p>
+                        </div>
+                        <div class="grid grid-2">
+                            <div class="option-card" data-key="estado" data-value="bueno">
+                                <span class="icon">✨</span>
+                                <span class="title">Buen estado</span>
+                                <span class="subtitle">Limpio y desenredado</span>
+                            </div>
+                            <div class="option-card" data-key="estado" data-value="enredado">
+                                <span class="icon">🌿</span>
+                                <span class="title">Algo enredado</span>
+                                <span class="subtitle">Algunos nudos o leve suciedad</span>
+                            </div>
+                            <div class="option-card" data-key="estado" data-value="sucio">
+                                <span class="icon">🌧️</span>
+                                <span class="title">Sucio</span>
+                                <span class="subtitle">Pelo con suciedad visible</span>
+                            </div>
+                            <div class="option-card" data-key="estado" data-value="muy_sucio">
+                                <span class="icon">😅</span>
+                                <span class="title">Muy sucio / Nudos</span>
+                                <span class="subtitle">Enmarañado, con barro o nudos</span>
+                            </div>
+                        </div>
+                        <div class="action-bar">
+                            <button class="btn btn-secondary prev-btn">Atrás</button>
+                            <button class="btn btn-primary next-btn" disabled>Continuar</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 5: Comportamiento -->
+                    <div class="step" data-step="5">
+                        <div class="step-header">
+                            <span class="step-number">Paso 5 de 6</span>
+                            <h3>¿Cómo se comporta en el peluquero?</h3>
+                            <p>Saber su carácter ayuda a garantizar una sesión relajada y segura para ambos.</p>
+                        </div>
+                        <div class="grid grid-2">
+                            <div class="option-card" data-key="comportamiento" data-value="docil">
+                                <span class="icon">😇</span>
+                                <span class="title">Dócil</span>
+                                <span class="subtitle">Colabora durante el servicio</span>
+                            </div>
+                            <div class="option-card" data-key="comportamiento" data-value="tranquilo">
+                                <span class="icon">😌</span>
+                                <span class="title">Tranquilo</span>
+                                <span class="subtitle">Se deja manipular con calma</span>
+                            </div>
+                            <div class="option-card" data-key="comportamiento" data-value="nervioso">
+                                <span class="icon">😬</span>
+                                <span class="title">Nervioso</span>
+                                <span class="subtitle">+15€ / 30 min extra</span>
+                            </div>
+                            <div class="option-card" data-key="comportamiento" data-value="agresivo">
+                                <span class="icon">⚠️</span>
+                                <span class="title">Difícil manejo</span>
+                                <span class="subtitle">+15€ / 30 min extra</span>
+                            </div>
+                        </div>
+                        <div class="action-bar">
+                            <button class="btn btn-secondary prev-btn">Atrás</button>
+                            <button class="btn btn-primary next-btn" disabled>Continuar</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 6: Extras / Suplementos -->
+                    <div class="step" data-step="6">
+                        <div class="step-header">
+                            <span class="step-number">Paso 6 de 6</span>
+                            <h3>Suplementos adicionales</h3>
+                            <p>Opcional: marca los que correspondan a tu perro (puedes marcar varios o ninguno).</p>
+                        </div>
+                        <div class="list-container">
+                            <div class="list-item">
+                                <div class="list-item-chk">
+                                    <input type="checkbox" value="lazos">
+                                    <span class="custom-chk"></span>
+                                </div>
+                                <span class="icon">🎀</span>
+                                <div class="list-item-content">
+                                    <span class="title">Lazos decorativos</span>
+                                    <span class="subtitle">Acabado con lazo bonito</span>
+                                </div>
+                                <span class="price-tag">+3 €</span>
+                            </div>
+                            <div class="list-item">
+                                <div class="list-item-chk">
+                                    <input type="checkbox" value="nudos">
+                                    <span class="custom-chk"></span>
+                                </div>
+                                <span class="icon">🪢</span>
+                                <div class="list-item-content">
+                                    <span class="title">Tratamiento de nudos</span>
+                                    <span class="subtitle">Trabajo intensivo de desenredado</span>
+                                </div>
+                                <span class="price-tag">+30 €/h</span>
+                            </div>
+                            <div class="list-item">
+                                <div class="list-item-chk">
+                                    <input type="checkbox" value="seniors">
+                                    <span class="custom-chk"></span>
+                                </div>
+                                <span class="icon">👑</span>
+                                <div class="list-item-content">
+                                    <span class="title">Suplemento Senior</span>
+                                    <span class="subtitle">Cuidado extra para perros mayores (5–15€ según tamaño)</span>
+                                </div>
+                                <span class="price-tag">+5-15 €</span>
+                            </div>
+                            <div class="list-item">
+                                <div class="list-item-chk">
+                                    <input type="checkbox" value="unas">
+                                    <span class="custom-chk"></span>
+                                </div>
+                                <span class="icon">✂️</span>
+                                <div class="list-item-content">
+                                    <span class="title">Corte de Uñas</span>
+                                    <span class="subtitle">Añade el corte de uñas a tu servicio (5–15€ según
+                                        tamaño)</span>
+                                </div>
+                                <span class="price-tag">+5-15 €</span>
+                            </div>
+                        </div>
+                        <div class="action-bar">
+                            <button class="btn btn-secondary prev-btn">Atrás</button>
+                            <button class="btn btn-calc" id="btn-calcular">Calcular presupuesto</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 7: Resultado -->
+                    <div class="step" data-step="7">
+                        <div class="step-header text-center">
+                            <span class="step-number text-highlight">Tu Presupuesto</span>
+                            <h3>Estimación personalizada</h3>
+                            <p>Calculado en base a las características de tu perro.</p>
+                        </div>
+
+                        <div class="result-banner">
+                            <span class="banner-tag">Le Petit Can</span>
+                            <div class="price-display">
+                                <span class="currency">€</span><span id="final-price">0</span>
+                            </div>
+                            <div class="time-display">
+                                <span class="icon">⏱</span> <span id="final-time">0 min</span>
+                            </div>
+                        </div>
+
+                        <div class="breakdown">
+                            <div class="breakdown-header">Desglose del cálculo</div>
+                            <div id="breakdown-list" class="breakdown-list">
+                                <!-- JS will populate this -->
+                            </div>
+                        </div>
+
+                        <div class="notice">
+                            <span class="icon">ℹ️</span>
+                            <p>Presupuesto orientativo. El profesional confirmará el precio final antes de inciar el
+                                servicio tras evaluar el estado real del manto.</p>
+                        </div>
+
+                        <div class="booking-card">
+                            <h4>¿Te encaja el presupuesto?</h4>
+                            <p>¡Reserva tu cita hoy mismo!</p>
+                            <div class="booking-actions">
+                                <a href="https://wa.me/34698130777" target="_blank" class="btn btn-primary">📅 Reservar
+                                    por WhatsApp</a>
+                                <a href="index.html#contacto" class="btn btn-secondary outline">💬 Ir al
+                                    formulario</a>
+                            </div>
+                        </div>
+
+                        <div class="restart-container">
+                            <button class="btn-link" id="btn-restart">← Volver a calcular</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-info">
+                <img src="logo-le-petit-fondo-blanco.png" alt="Le Petit Can Logo" class="logo-img-footer">
+                <p>Salón Boutique de Estética Canina Profesional en Narón. Un entorno de respeto y salud para ellos.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/lepetitcan.naron/" target="_blank" aria-label="Instagram"><i
+                            class="ph ph-instagram-logo"></i></a>
+                    <a href="https://www.facebook.com/p/Le-Petit-Can-Naron-100083351005594/" target="_blank"
+                        aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                    <a href="https://wa.me/34698130777" target="_blank" aria-label="WhatsApp"><i
+                            class="ph ph-whatsapp-logo"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#nosotros">Qué Hacemos</a></li>
+                    <li><a href="index.html#lili">Iliana Ortega</a></li>
+                    <li><a href="index.html#servicios">Carta de Servicios</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Información Legal</h4>
+                <ul>
+                    <li><a href="aviso-legal.html">Aviso Legal</a></li>
+                    <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="politica-cookies.html">Política de Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container text-center">
+                <p>&copy; 2026 Le Petit Can Narón. Todos los derechos reservados. Diseñado con <i
+                        class="ph-fill ph-heart text-green"></i>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAB WhatsApp -->
+    <a href="https://wa.me/34698130777" target="_blank" class="fab-whatsapp"
+        aria-label="Chatea con nosotros en WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+
+    <script src="script-calculadora.js"></script>
+</body>
+
+</html>
