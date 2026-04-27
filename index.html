@@ -19,6 +19,19 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="icon" type="image/png" href="logo-le-petit-can.png">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .btn-booking-alt {
+            background-color: var(--green-accent);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(111, 155, 106, 0.3);
+        }
+
+        .btn-booking-alt:hover {
+            background-color: var(--green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 122, 75, 0.4);
+        }
+    </style>
 </head>
 
 <body>
@@ -38,11 +51,11 @@
                     <li><a href="#faqs" class="nav-link">FAQs</a></li>
                     <li><a href="#galeria" class="nav-link">Galería</a></li>
                     <li><a href="#ubicacion" class="nav-link">Ubicación</a></li>
-                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    <li><a href="#reserva-peluqueria" class="nav-link">Reserva</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="#contacto" class="btn btn-primary">Reservar cita</a>
+                <a href="#reserva-peluqueria" class="btn btn-primary">Reservar cita</a>
                 <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
                     <i class="ph ph-list"></i>
                 </button>
@@ -61,7 +74,7 @@
                     <p class="hero-subtitle">Descubre un espacio donde la estética canina se convierte en una
                         experiencia premium. Mimamos cada detalle para el bienestar de tu mejor amigo.</p>
                     <div class="hero-ctas">
-                        <a href="#contacto" class="btn btn-primary">Reserva su momento</a>
+                        <a href="#reserva-peluqueria" class="btn btn-primary">Reserva su momento</a>
                         <a href="#servicios" class="btn btn-secondary">Descubre nuestros servicios</a>
                     </div>
 
@@ -491,51 +504,28 @@
                 </div>
             </div>
         </section>
-
-        <!-- 11. CONTACTO -->
-        <section id="contacto" class="contact section">
-            <div class="container contact-inner">
-                <div class="contact-header text-center">
-                    <h2 class="section-title">Reserva su Momento</h2>
-                    <p class="section-desc">Escríbenos para consultar nuestra disponibilidad de agenda. Estaremos
-                        encantados de atender a tu mascota.</p>
+        <!-- 12. RESERVA PELUQUERÍA -->
+        <section id="reserva-peluqueria" class="reserva section bg-alt">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Reserva Peluquería</h2>
+                    <p class="section-desc">Reserva tu cita de forma rápida y sencilla para el bienestar de tu peludo.</p>
                 </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group w-50">
-                            <label for="name">Tu Nombre</label>
-                            <input type="text" id="name" placeholder="Ej: Laura Martínez" required>
-                        </div>
-                        <div class="form-group w-50">
-                            <label for="dogName">Nombre del Perrito</label>
-                            <input type="text" id="dogName" placeholder="Ej: Coco" required>
-                        </div>
+                <div class="booking-wrapper"
+                    style="max-width: 1000px; margin: 0 auto; background: #fff; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);">
+                    <iframe
+                        src="https://link.lepetitcan.es/booking/le-petit-can-vmy0g4h7bm/sc/69de1451b85f2277c05051fe?heightMode=fixed&showHeader=false"
+                        style="width: 100%;border:none;overflow: hidden;" scrolling="no"
+                        id="69de1451b85f2277c05051fe_1776178064059"></iframe><br>
+                    <script src="https://link.lepetitcan.es/js/form_embed.js" type="text/javascript"></script>
+
+                    <!-- Botón adicional para segunda cita -->
+                    <div style="padding: 0 40px 40px; text-align: center;">
+                        <button type="button"
+                            onclick="document.getElementById('69de1451b85f2277c05051fe_1776178064059').src='https://link.lepetitcan.es/booking/3Imj0wTV5rtcdW4sEDZ4?heightMode=fixed&showHeader=false'; document.getElementById('reserva-peluqueria').scrollIntoView({behavior: 'smooth'});"
+                            class="btn btn-booking-alt">Registrar una segunda cita para otra mascota</button>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group w-50">
-                            <label for="phone">Teléfono Móvil</label>
-                            <input type="tel" id="phone" placeholder="Tu número para contactarte" required>
-                        </div>
-                        <div class="form-group w-50">
-                            <label for="service">Servicio Principal</label>
-                            <select id="service" required>
-                                <option value="" disabled selected>Selecciona una opción...</option>
-                                <option value="corte">Corte de Raza</option>
-                                <option value="bano">Baño Spa & Arreglo</option>
-                                <option value="stripping">Stripping Terriers</option>
-                                <option value="duda">Necesito asesoramiento</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensaje Adicional</label>
-                        <textarea id="message" rows="4"
-                            placeholder="Indica la raza, peso aproximado, y si hay alguna alergia o necesidad especial que debamos conocer..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">Enviar Solicitud de Cita</button>
-                    <p class="form-note">Te contactaremos por WhatsApp o llamada para confirmar el día y hora exactos.
-                    </p>
-                </form>
+                </div>
             </div>
         </section>
     </main>
@@ -578,10 +568,7 @@
         </div>
     </footer>
 
-    <!-- FAB WhatsApp -->
-    <a href="https://wa.me/34698130777" target="_blank" class="fab-whatsapp" aria-label="Chatea con nosotros en WhatsApp">
-        <i class="ph-fill ph-whatsapp-logo"></i>
-    </a>
+
 
     <!-- BANNER DE COOKIES -->
     <div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc" aria-modal="true">
@@ -652,6 +639,7 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
+    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69e78646089c1829c1686460"></script>
 </body>
 
 </html>
