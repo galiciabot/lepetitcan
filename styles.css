@@ -622,8 +622,9 @@ img {
 
 /* Swiper Container */
 .services-swiper {
-  padding: 20px 0 60px; /* space for shadow and pagination */
-  overflow: hidden;
+  padding: 20px 0 60px; /* Restauramos el padding original para no estrechar las tarjetas */
+  overflow: visible; /* Crucial para que las flechas se vean fuera del contenedor */
+  margin: 0 auto;
 }
 .services-swiper .swiper-slide {
   height: 500px;
@@ -793,17 +794,39 @@ img {
 .services-swiper .swiper-button-next,
 .services-swiper .swiper-button-prev {
   color: var(--green-dark);
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.9);
   width: 50px;
   height: 50px;
   border-radius: 50%;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
+  top: 45%; /* Centrado visual un poco más arriba del centro absoluto */
+}
+
+.services-swiper .swiper-button-prev {
+  left: -60px; /* Desplazada totalmente fuera a la izquierda */
+}
+
+.services-swiper .swiper-button-next {
+  right: -60px; /* Desplazada totalmente fuera a la derecha */
+}
+
+@media (max-width: 1350px) {
+  /* Si la pantalla se estrecha, las acercamos un poco para que no se salgan del monitor */
+  .services-swiper .swiper-button-prev { left: -30px; }
+  .services-swiper .swiper-button-next { right: -30px; }
 }
 .services-swiper .swiper-button-next:after,
 .services-swiper .swiper-button-prev:after {
   font-size: 1.2rem;
   font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .services-swiper .swiper-button-next:after,
+  .services-swiper .swiper-button-prev:after {
+    font-size: 1rem; /* Flechas ligeramente más pequeñas en móvil */
+  }
 }
 .services-swiper .swiper-button-next:hover,
 .services-swiper .swiper-button-prev:hover {
@@ -822,8 +845,32 @@ img {
 }
 
 @media (max-width: 768px) {
+  .services-swiper {
+    padding: 20px 0 60px;
+    overflow: visible; /* Mantenemos visible para permitir que las flechas respiren */
+  }
+  .services-swiper .swiper-button-prev,
+  .services-swiper .swiper-button-next {
+    display: flex; /* Las volvemos a mostrar */
+    width: 40px; /* Un poco más pequeñas */
+    height: 40px;
+    top: 50%;
+  }
+  .services-swiper .swiper-button-prev {
+    left: -10px; /* Ligeramente fuera para no pisar el centro de la tarjeta */
+  }
+  .services-swiper .swiper-button-next {
+    right: -10px;
+  }
+  /* Aumentamos el padding interno de las tarjetas en móvil para proteger el texto */
+  .service-card-back {
+    padding: 32px 45px; 
+  }
+  .service-overlay {
+    padding: 40px 45px;
+  }
   .services-swiper .swiper-slide {
-    height: 400px;
+    height: 450px; /* Un poco más de altura para compensar el padding extra */
   }
   .service-overlay h3 {
     font-size: 1.5rem;
