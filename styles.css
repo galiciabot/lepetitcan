@@ -3,15 +3,24 @@
 ================================================*/
 :root {
   /* Colors */
-  --bg-main: #F7F5F2; /* blanco roto */
-  --bg-alt: #EFEAE4; /* crema suave */
-  --green-main: #A8CFA2; /* verde principal */
-  --green-accent: #6F9B6A; /* verde botones */
-  --green-dark: #4F7A4B; /* verde hover */
-  --text-main: #2F2F2F; /* texto negro suave */
-  --text-sec: #5A5A5A; /* texto gris */
-  --title-main: #1F1F1F; /* texto muy oscuro */
-  --accent-pink: #D8B4A0; /* acento opcional */
+  --bg-main: #F7F5F2;
+  /* blanco roto */
+  --bg-alt: #EFEAE4;
+  /* crema suave */
+  --green-main: #A8CFA2;
+  /* verde principal */
+  --green-accent: #6F9B6A;
+  /* verde botones */
+  --green-dark: #4F7A4B;
+  /* verde hover */
+  --text-main: #2F2F2F;
+  /* texto negro suave */
+  --text-sec: #5A5A5A;
+  /* texto gris */
+  --title-main: #1F1F1F;
+  /* texto muy oscuro */
+  --accent-pink: #D8B4A0;
+  /* acento opcional */
 
   /* Typography */
   --font-body: 'Manrope', system-ui, -apple-system, sans-serif;
@@ -32,7 +41,9 @@
 }
 
 /* Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -53,7 +64,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6, .logo-text, .signature {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.logo-text,
+.signature {
   font-family: var(--font-heading);
   color: var(--title-main);
   font-weight: 500;
@@ -239,7 +257,7 @@ img {
   background-color: rgba(247, 245, 242, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
 }
 
 .header-inner {
@@ -255,10 +273,63 @@ img {
   color: var(--green-dark);
 }
 
-.nav-list {
-  display: flex;
-  gap: 28px;
+/* Global box-sizing */
+* {
+  box-sizing: border-box;
 }
+
+body {
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+}
+
+/* Container should be fluid */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/* Images responsive */
+img,
+.service-card-image img,
+.gallery-item img,
+.logo-img,
+.logo-img-footer {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Iframe responsive */
+.location-map iframe {
+  width: 100% !important;
+  height: auto;
+  aspect-ratio: 4/3;
+  border: 0;
+}
+
+/* Swiper slides should take full width */
+.services-swiper .swiper-slide {
+  width: 100% !important;
+}
+
+/* Reduce font sizes on very small screens */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+}
+
 
 .nav-link {
   font-size: 0.95rem;
@@ -282,7 +353,8 @@ img {
   color: var(--title-main);
 }
 
-.nav-link:hover::after, .nav-link.active::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
 }
 
@@ -325,8 +397,10 @@ img {
   height: 100%;
   /* Imagen de identidad de la marca (hojas verdes) */
   background-image: url('fondo-hojas-le-petit-can.png');
-  background-size: 500px; /* Ajuste del patrón para que se vea elegante */
-  opacity: 0.12; /* Ajustado al 12% a petición del cliente */
+  background-size: 500px;
+  /* Ajuste del patrón para que se vea elegante */
+  opacity: 0.12;
+  /* Ajustado al 12% a petición del cliente */
   z-index: -2;
 }
 
@@ -362,7 +436,7 @@ img {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-bottom: 24px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .hero-title {
@@ -418,7 +492,7 @@ img {
   object-fit: cover;
   border: 3px solid var(--bg-main);
   margin-left: -12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .trust-avatars img:first-child {
@@ -616,16 +690,20 @@ img {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
 }
+
 .btn-icon i {
   font-size: 1.2rem;
 }
 
 /* Swiper Container */
 .services-swiper {
-  padding: 20px 0 60px; /* Restauramos el padding original para no estrechar las tarjetas */
-  overflow: visible; /* Crucial para que las flechas se vean fuera del contenedor */
+  padding: 20px 0 60px;
+  /* Restauramos el padding original para no estrechar las tarjetas */
+  overflow: visible;
+  /* Crucial para que las flechas se vean fuera del contenedor */
   margin: 0 auto;
 }
+
 .services-swiper .swiper-slide {
   height: 500px;
   display: flex;
@@ -647,7 +725,7 @@ img {
 .swiper-slide-active .service-card-flip,
 .swiper-slide-next .service-card-flip,
 .swiper-slide-prev .service-card-flip {
-   transform: scale(1);
+  transform: scale(1);
 }
 
 .service-card-flip:hover {
@@ -704,7 +782,7 @@ img {
   left: 0;
   width: 100%;
   height: 60%;
-  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -719,7 +797,7 @@ img {
   margin-bottom: 10px;
   font-family: var(--font-body);
   font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .service-card-back {
@@ -794,28 +872,38 @@ img {
 .services-swiper .swiper-button-next,
 .services-swiper .swiper-button-prev {
   color: var(--green-dark);
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   width: 50px;
   height: 50px;
   border-radius: 50%;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
-  top: 45%; /* Centrado visual un poco más arriba del centro absoluto */
+  top: 45%;
+  /* Centrado visual un poco más arriba del centro absoluto */
 }
 
 .services-swiper .swiper-button-prev {
-  left: -60px; /* Desplazada totalmente fuera a la izquierda */
+  left: -60px;
+  /* Desplazada totalmente fuera a la izquierda */
 }
 
 .services-swiper .swiper-button-next {
-  right: -60px; /* Desplazada totalmente fuera a la derecha */
+  right: -60px;
+  /* Desplazada totalmente fuera a la derecha */
 }
 
 @media (max-width: 1350px) {
+
   /* Si la pantalla se estrecha, las acercamos un poco para que no se salgan del monitor */
-  .services-swiper .swiper-button-prev { left: -30px; }
-  .services-swiper .swiper-button-next { right: -30px; }
+  .services-swiper .swiper-button-prev {
+    left: -30px;
+  }
+
+  .services-swiper .swiper-button-next {
+    right: -30px;
+  }
 }
+
 .services-swiper .swiper-button-next:after,
 .services-swiper .swiper-button-prev:after {
   font-size: 1.2rem;
@@ -823,22 +911,27 @@ img {
 }
 
 @media (max-width: 768px) {
+
   .services-swiper .swiper-button-next:after,
   .services-swiper .swiper-button-prev:after {
-    font-size: 1rem; /* Flechas ligeramente más pequeñas en móvil */
+    font-size: 1rem;
+    /* Flechas ligeramente más pequeñas en móvil */
   }
 }
+
 .services-swiper .swiper-button-next:hover,
 .services-swiper .swiper-button-prev:hover {
   background: #fff;
   transform: scale(1.1);
 }
+
 .services-swiper .swiper-pagination-bullet {
   background-color: var(--green-accent);
   opacity: 0.4;
   width: 10px;
   height: 10px;
 }
+
 .services-swiper .swiper-pagination-bullet-active {
   background-color: var(--green-dark);
   opacity: 1;
@@ -847,31 +940,43 @@ img {
 @media (max-width: 768px) {
   .services-swiper {
     padding: 20px 0 60px;
-    overflow: visible; /* Mantenemos visible para permitir que las flechas respiren */
+    overflow: visible;
+    /* Mantenemos visible para permitir que las flechas respiren */
   }
+
   .services-swiper .swiper-button-prev,
   .services-swiper .swiper-button-next {
-    display: flex; /* Las volvemos a mostrar */
-    width: 40px; /* Un poco más pequeñas */
+    display: flex;
+    /* Las volvemos a mostrar */
+    width: 40px;
+    /* Un poco más pequeñas */
     height: 40px;
     top: 50%;
   }
+
   .services-swiper .swiper-button-prev {
-    left: -10px; /* Ligeramente fuera para no pisar el centro de la tarjeta */
+    left: -10px;
+    /* Ligeramente fuera para no pisar el centro de la tarjeta */
   }
+
   .services-swiper .swiper-button-next {
     right: -10px;
   }
+
   /* Aumentamos el padding interno de las tarjetas en móvil para proteger el texto */
   .service-card-back {
-    padding: 32px 45px; 
+    padding: 32px 45px;
   }
+
   .service-overlay {
     padding: 40px 45px;
   }
+
   .services-swiper .swiper-slide {
-    height: 450px; /* Un poco más de altura para compensar el padding extra */
+    height: 450px;
+    /* Un poco más de altura para compensar el padding extra */
   }
+
   .service-overlay h3 {
     font-size: 1.5rem;
   }
@@ -909,20 +1014,24 @@ img {
 }
 
 .logo-img {
-  height: 90px; /* Aumentado considerablemente para máxima visibilidad */
+  height: 90px;
+  /* Aumentado considerablemente para máxima visibilidad */
   width: auto;
   display: block;
 }
 
 .logo-img-footer {
-  height: 120px; /* Aumentado considerablemente para máxima visibilidad */
+  height: 120px;
+  /* Aumentado considerablemente para máxima visibilidad */
   width: auto;
   margin-bottom: 24px;
-  border-radius: var(--radius-md); /* Esquinas redondeadas para mayor suavidad visual */
+  border-radius: var(--radius-md);
+  /* Esquinas redondeadas para mayor suavidad visual */
 }
 
 .logo-text {
-  display: none; /* Hide if still present */
+  display: none;
+  /* Hide if still present */
 }
 
 .customer strong {
@@ -1129,7 +1238,7 @@ img {
   justify-content: center;
   align-items: center;
   color: var(--text-sec);
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: var(--shadow-sm);
 }
 
@@ -1219,7 +1328,7 @@ img {
 }
 
 .footer-brand p {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   margin-bottom: 32px;
   max-width: 300px;
 }
@@ -1259,7 +1368,7 @@ img {
 }
 
 .footer-links ul a {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.95rem;
   transition: var(--transition);
 }
@@ -1270,16 +1379,23 @@ img {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 32px 0;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.9rem;
 }
 
 /* Keyframes */
 @keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive */
@@ -1290,28 +1406,32 @@ img {
 }
 
 @media (max-width: 992px) {
-  .hero-inner, .about-inner, .lili-inner, .location-inner {
+
+  .hero-inner,
+  .about-inner,
+  .lili-inner,
+  .location-inner {
     grid-template-columns: 1fr;
     gap: 60px;
   }
-  
+
   .hero {
     padding-top: 140px;
     text-align: center;
   }
-  
+
   .hero-subtitle {
     margin: 0 auto 40px;
   }
-  
+
   .hero-ctas {
     justify-content: center;
   }
-  
+
   .trust-block {
     justify-content: center;
   }
-  
+
   .hero-image {
     grid-row: 1;
   }
@@ -1319,25 +1439,25 @@ img {
   .about-image {
     order: -1;
   }
-  
+
   .banner-content h2 {
     font-size: 2.2rem;
   }
-  
+
   .gallery-mosaic {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .gallery-item.large {
     grid-column: span 1;
     grid-row: span 1;
   }
-  
+
   .footer-inner {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
   }
-  
+
   .footer-brand {
     grid-column: span 2;
   }
@@ -1347,19 +1467,19 @@ img {
   .section {
     padding: 80px 0;
   }
-  
+
   .section-title {
     font-size: 2.2rem;
   }
-  
+
   .header-actions .btn {
     display: none;
   }
-  
+
   .menu-toggle {
     display: block;
   }
-  
+
   .nav {
     position: absolute;
     top: 100%;
@@ -1367,34 +1487,34 @@ img {
     width: 100%;
     background-color: var(--bg-main);
     padding: 32px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     transition: var(--transition);
   }
-  
+
   .nav.active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
-  
+
   .nav-list {
     flex-direction: column;
     align-items: center;
     gap: 24px;
   }
-  
+
   .nav-link {
     font-size: 1.1rem;
   }
-  
+
   .form-row {
     flex-direction: column;
     gap: 0;
   }
-  
+
   .footer-inner {
     grid-template-columns: 1fr;
   }
-  
+
   .footer-brand {
     grid-column: span 1;
   }
@@ -1404,12 +1524,13 @@ img {
   .hero-title {
     font-size: 2.8rem;
   }
-  
+
   .hero-ctas {
     flex-direction: column;
   }
-  
-  .btn-primary, .btn-secondary {
+
+  .btn-primary,
+  .btn-secondary {
     width: 100%;
   }
 
@@ -1576,8 +1697,13 @@ img {
 }
 
 @keyframes fadeInOverlay {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .cookie-modal-box {
@@ -1592,8 +1718,15 @@ img {
 }
 
 @keyframes slideUpModal {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .cookie-modal-box h3 {
@@ -1701,18 +1834,18 @@ img {
   background-color: #fff;
   border-radius: 50%;
   transition: 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-.cookie-toggle input:checked + .toggle-slider {
+.cookie-toggle input:checked+.toggle-slider {
   background-color: var(--green-accent);
 }
 
-.cookie-toggle input:checked + .toggle-slider::before {
+.cookie-toggle input:checked+.toggle-slider::before {
   transform: translateX(22px);
 }
 
-.cookie-toggle input:disabled + .toggle-slider {
+.cookie-toggle input:disabled+.toggle-slider {
   background-color: var(--green-main);
   opacity: 0.7;
   cursor: not-allowed;
@@ -1750,4 +1883,151 @@ img {
   .cookie-modal-box h3 {
     font-size: 1.5rem;
   }
+}
+
+/* --------------------------------------------------- */
+/* Extra Mobile‑Responsive Fixes (prevent horizontal scroll) */
+/* --------------------------------------------------- */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure containers never exceed viewport width */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Reduce side padding on very small screens */
+@media (max-width: 480px) {
+  .section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .services-swiper .swiper-button-prev,
+  .services-swiper .swiper-button-next {
+    display: none;
+  }
+
+  .gallery-mosaic {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item.large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .location-inner,
+  .about-inner,
+  .lili-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Responsive images */
+img,
+.service-card-image img,
+.product-img img,
+.gallery-item img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Responsive map iframe */
+.location-map iframe {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4/3;
+  border: 0;
+}
+
+/* Ensure Swiper slides use full width */
+.services-swiper .swiper-slide {
+  width: 100% !important;
+}
+
+/* Prevent any element from causing overflow */
+* {
+  max-width: 100%;
+}
+
+/* --------------------------------------------------- */
+/* Additional Mobile‑Responsive Fixes (prevent horizontal overflow) */
+/* --------------------------------------------------- */
+
+/* Hero image should never exceed viewport width */
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure Swiper container respects viewport */
+.services-swiper {
+  width: 100% !important;
+  overflow: hidden;
+}
+
+.services-swiper .swiper-wrapper {
+  width: 100% !important;
+}
+
+/* Service cards should be fluid */
+.service-card-flip,
+.service-card-inner,
+.service-card-front,
+.service-card-back {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Prevent any flex container from causing overflow */
+.nav-list,
+.footer-inner,
+.gallery-mosaic {
+  max-width: 100%;
+}
+
+/* Ensure images inside cards are responsive */
+.service-card-image img,
+.product-img img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Extra safety: force all block‑level elements to respect viewport */
+section,
+div {
+  max-width: 100%;
+  box-sizing: border-box;
 }
