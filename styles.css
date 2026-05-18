@@ -2004,7 +2004,6 @@ img,
 }
 
 /* Ensure images inside cards are responsive */
-.service-card-image img,
 .product-img img {
   max-width: 100%;
   height: auto;
