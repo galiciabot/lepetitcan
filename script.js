@@ -46,16 +46,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Initialize Swiper for Services
     if (typeof Swiper !== 'undefined') {
         new Swiper('.services-swiper', {
-            slidesPerView: 1,
-            spaceBetween: 20,
+            slidesPerView: 3,
+            spaceBetween: 30,
             loop: true,
             breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
                 576: {
                     slidesPerView: 2,
                     spaceBetween: 20,
                 },
                 992: {
-                    slidesPerView: 3,
+                    slidesPerView: 4,
                     spaceBetween: 30,
                 },
                 1200: {
