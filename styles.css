@@ -1017,7 +1017,7 @@ img,
 }
 
 .mobile-logo {
-  display: none;
+  display: none !important;
 }
 
 .logo-img-footer {
