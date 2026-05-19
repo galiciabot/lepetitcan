@@ -1016,6 +1016,10 @@ img,
   display: block;
 }
 
+.mobile-logo {
+  display: none;
+}
+
 .logo-img-footer {
   height: 120px;
   /* Aumentado considerablemente para máxima visibilidad */
@@ -1460,6 +1464,29 @@ img,
 }
 
 @media (max-width: 768px) {
+  .header-inner {
+    position: relative;
+    justify-content: flex-end;
+  }
+
+  .desktop-logo {
+    display: none !important;
+  }
+
+  .mobile-logo {
+    display: block !important;
+    height: 110px !important;
+    width: auto;
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+
   .section {
     padding: 80px 0;
   }
