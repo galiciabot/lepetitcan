@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Sticky Header
     const header = document.getElementById('header');
-    
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.getElementById('nav');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    if(menuToggle && nav) {
+    if (menuToggle && nav) {
         menuToggle.addEventListener('click', () => {
             nav.classList.toggle('active');
             const icon = menuToggle.querySelector('i');
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 nav.classList.remove('active');
                 const icon = menuToggle.querySelector('i');
-                if(icon) {
+                if (icon) {
                     icon.classList.replace('ph-x', 'ph-list');
                 }
             });
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const btn = item.querySelector('.faq-question');
-        if(btn) {
+        if (btn) {
             btn.addEventListener('click', () => {
                 // Close other items for a cleaner accordion feel
                 faqItems.forEach(otherItem => {
@@ -100,10 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. ScrollSpy - Highlight active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
-    
+
     window.addEventListener('scroll', () => {
         let current = '';
-        
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             // Subtract header height or offset
@@ -124,10 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
-            if(targetId === '#') return;
-            
+            if (targetId === '#') return;
+
             const targetElement = document.querySelector(targetId);
-            if(targetElement) {
+            if (targetElement) {
                 e.preventDefault();
                 // Offset calculation if needed based on header height
                 const headerOffset = 80;
@@ -144,16 +144,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 7. Simple form submission handler
     const contactForm = document.getElementById('contactForm');
-    if(contactForm) {
+    if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             // Just visual feedback for the static site
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerText;
-            
+
             submitBtn.innerText = "¡Solicitud enviada!";
             submitBtn.style.backgroundColor = "var(--green-dark)";
-            
+
             setTimeout(() => {
                 submitBtn.innerText = originalText;
                 submitBtn.style.backgroundColor = "";
@@ -163,15 +163,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 8. Cookie Consent Banner
-    const cookieBanner  = document.getElementById('cookie-banner');
-    const cookieModal   = document.getElementById('cookie-modal');
-    const acceptBtn     = document.getElementById('cookie-accept-btn');
-    const rejectBtn     = document.getElementById('cookie-reject-btn');
-    const configBtn     = document.getElementById('cookie-config-btn');
-    const modalClose    = document.getElementById('cookie-modal-close');
-    const saveBtn       = document.getElementById('cookie-save-btn');
-    const analyticsChk  = document.getElementById('cookie-analytics');
-    const marketingChk  = document.getElementById('cookie-marketing');
+    const cookieBanner = document.getElementById('cookie-banner');
+    const cookieModal = document.getElementById('cookie-modal');
+    const acceptBtn = document.getElementById('cookie-accept-btn');
+    const rejectBtn = document.getElementById('cookie-reject-btn');
+    const configBtn = document.getElementById('cookie-config-btn');
+    const modalClose = document.getElementById('cookie-modal-close');
+    const saveBtn = document.getElementById('cookie-save-btn');
+    const analyticsChk = document.getElementById('cookie-analytics');
+    const marketingChk = document.getElementById('cookie-marketing');
 
     const COOKIE_KEY = 'lepetitcan_cookie_consent';
 
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const prefs = JSON.parse(saved);
                 if (analyticsChk) analyticsChk.checked = prefs.analytics || false;
                 if (marketingChk) marketingChk.checked = prefs.marketing || false;
-            } catch(e) {}
+            } catch (e) { }
         }
         if (cookieModal) cookieModal.removeAttribute('hidden');
     }

@@ -19,7 +19,7 @@
   /* texto gris */
   --title-main: #1F1F1F;
   /* texto muy oscuro */
-  --accent-pink: #D8B4A0;
+  --accent-rosewood: #9E4244;
   /* acento opcional */
 
   /* Typography */
@@ -293,7 +293,6 @@ body {
 
 /* Images responsive */
 img,
-.gallery-item img,
 .logo-img,
 .logo-img-footer {
   max-width: 100%;
@@ -406,7 +405,7 @@ img,
   z-index: -2;
 }
 
-/* Decorative Pink Blob */
+/* Decorative Rosewood Blob */
 .hero::after {
   content: '';
   position: absolute;
@@ -414,7 +413,7 @@ img,
   right: -10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(216, 180, 160, 0.15) 0%, rgba(247, 245, 242, 0) 70%);
+  background: radial-gradient(circle, rgba(158, 66, 68, 0.15) 0%, rgba(247, 245, 242, 0) 70%);
   border-radius: 50%;
   z-index: -1;
 }
@@ -460,7 +459,7 @@ img,
   left: 0;
   width: 100%;
   height: 8px;
-  background-color: rgba(216, 180, 160, 0.3);
+  background-color: rgba(158, 66, 68, 0.3);
   z-index: -1;
 }
 
@@ -542,7 +541,7 @@ img,
   right: -20px;
   width: 100px;
   height: 100px;
-  background-color: var(--accent-pink);
+  background-color: var(--accent-rosewood);
   border-radius: 50%;
   z-index: -1;
   opacity: 0.5;
@@ -680,8 +679,8 @@ img,
   }
 }
 
-.highlight-pink {
-  color: var(--accent-pink);
+.highlight-rosewood {
+  color: var(--accent-rosewood);
   font-style: italic;
   font-weight: 500;
 }
@@ -1175,8 +1174,8 @@ img,
   transform: scale(1.25);
 }
 
-.gallery-item img.pos-top {
-  object-position: center 80%;
+.gallery-item img.pos-bottom {
+  object-position: center bottom;
 }
 
 .gallery-item:hover img.zoom-in {
@@ -1186,6 +1185,11 @@ img,
 .gallery-item.large {
   grid-column: span 2;
   grid-row: span 2;
+}
+
+.gallery-item.wide {
+  grid-column: span 2;
+  grid-row: span 1;
 }
 
 /* Location */
@@ -1450,6 +1454,11 @@ img,
 
   .gallery-item.large {
     grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .gallery-item.wide {
+    grid-column: span 2;
     grid-row: span 1;
   }
 
@@ -1961,7 +1970,8 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .gallery-item.large {
+  .gallery-item.large,
+  .gallery-item.wide {
     grid-column: span 1;
     grid-row: span 1;
   }
@@ -1977,8 +1987,7 @@ body {
 /* Responsive images */
 img,
 .service-card-image img,
-.product-img img,
-.gallery-item img {
+.product-img img {
   max-width: 100%;
   height: auto;
   display: block;
